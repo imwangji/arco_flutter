@@ -1,4 +1,5 @@
 import 'package:arco_flutter/shape/button_shape.dart';
+import 'package:arco_flutter/theme/default_theme.dart';
 import 'package:flutter/material.dart';
 
 getButtonMaterialShapeProperty(ArcoButtonShape? shape) {
@@ -57,11 +58,19 @@ class _ArcoButtonState extends State<ArcoButton> {
   MaterialStateProperty<OutlinedBorder?>? shape;
   void Function()? onPressed;
   Color? backgroundColor;
-  Color? textColor;
+
+  TextStyle getButtonTextStyle() {
+    return ArcoDefaultTheme.defaultButtonTextStyle.merge(TextStyle(
+      color: widget.textColor,
+    ));
+  }
+
   @override
   void initState() {
     super.initState();
-    child = widget.text != null ? Text(widget.text!) : widget.child;
+    child = widget.text != null
+        ? Text(widget.text!, style: getButtonTextStyle())
+        : widget.child;
     shape = getButtonMaterialShapeProperty(widget.shape);
     onPressed = widget.onPressed;
   }

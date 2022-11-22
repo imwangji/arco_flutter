@@ -12,6 +12,7 @@ class ButtonPage extends StatelessWidget {
         children: [
           ArcoButton(
             "普通按钮",
+            textColor: Colors.black,
             onPressed: () {},
           ),
           ArcoButton(
