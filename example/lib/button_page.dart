@@ -1,4 +1,5 @@
 import 'package:arco_flutter/components/button/arco_button.dart';
+import 'package:arco_flutter/shape/button_shape.dart';
 import 'package:flutter/material.dart';
 
 class ButtonPage extends StatelessWidget {
@@ -8,8 +9,21 @@ class ButtonPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        children: const [
-          ArcoButton("按钮"),
+        children: [
+          ArcoButton(
+            "普通按钮",
+            onPressed: () {},
+          ),
+          ArcoButton(
+            "胶囊按钮",
+            shape: ArcoButtonShape.pill,
+            onPressed: () {},
+          ),
+          ArcoButton(
+            "矩形按钮",
+            shape: ArcoButtonShape.rect,
+            onPressed: () {},
+          ),
         ],
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:arco_flutter/components/button/arco_button.dart';
+import 'package:example/button_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -78,7 +79,19 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Column(
         children: [
-          ArcoButton("click me"),
+          ArcoButton(
+            "click me",
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return const ButtonPage();
+                  },
+                ),
+              );
+            },
+          ),
         ],
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
